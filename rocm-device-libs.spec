@@ -36,15 +36,17 @@ libraries in the form of bit code. Specifically:
 %autosetup -p1 -n %{upstreamname}-rocm-%{version}
 
 %build
-%cmake . -DCMAKE_BUILD_TYPE="RELEASE"
+%cmake -DCMAKE_BUILD_TYPE="RELEASE"
 %cmake_build
 
 %install
 %cmake_install
 
 %files
-%license LICENSE
+%license LICENSE.TXT
 %doc README.md doc/*.md
+# No need to install this twice:
+%exclude %{_docdir}/ROCm-Device-Libs/rocm-device-libs/LICENSE.TXT
 %{_libdir}/cmake/AMDDeviceLibs
 %{_libdir}/amdgcn
 
