@@ -1,11 +1,12 @@
 # bitcode has no debuginfo
 %global debug_package %{nil}
 
+%global llvm_maj_ver 14
 %global upstreamname ROCm-Device-Libs
 
 Name:           rocm-device-libs
 Version:        5.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
@@ -15,9 +16,11 @@ Source0:        https://github.com/RadeonOpenCompute/%{upstreamname}/archive/ref
 Patch0:         0001-Use-FHS-compliant-install.patch
 
 BuildRequires:  cmake
-BuildRequires:  clang-devel >= 14.0.0
-BuildRequires:  llvm-devel >= 14.0.0
+BuildRequires:  clang-devel
+BuildRequires:  clang(major) = %{llvm_maj_ver}
+BuildRequires:  llvm-devel(major) = %{llvm_maj_ver}
 BuildRequires:  zlib-devel
+Requires:       clang(major) = %{llvm_maj_ver}
 
 #Only the following architectures are supported:
 ExclusiveArch:  x86_64 aarch64
@@ -51,6 +54,10 @@ libraries in the form of bit code. Specifically:
 %{_libdir}/amdgcn
 
 %changelog
+* Thu Mar 31 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-2
+- Add clang specific major version requires
+- BR a specific clang/llvm major version combination
+
 * Thu Mar 31 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-1
 - Update to 5.1.0
 - Add llvm version requirement to make sure the right version is used
