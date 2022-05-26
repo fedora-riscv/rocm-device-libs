@@ -1,7 +1,7 @@
 # bitcode has no debuginfo
 %global debug_package %{nil}
 
-%global llvm_maj_ver 14
+%global llvm_maj_ver 13
 %global upstreamname ROCm-Device-Libs
 
 Name:           rocm-device-libs
