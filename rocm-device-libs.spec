@@ -19,6 +19,7 @@ BuildRequires:  cmake
 BuildRequires:  clang-devel
 BuildRequires:  clang(major) = %{llvm_maj_ver}
 BuildRequires:  llvm-devel(major) = %{llvm_maj_ver}
+BuildRequires:  ncurses-devel
 BuildRequires:  zlib-devel
 Requires:       clang(major) = %{llvm_maj_ver}
 
