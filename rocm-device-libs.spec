@@ -5,8 +5,8 @@
 %global upstreamname ROCm-Device-Libs
 
 Name:           rocm-device-libs
-Version:        5.1.0
-Release:        3%{?dist}
+Version:        5.0.2
+Release:        1%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
@@ -46,27 +46,11 @@ libraries in the form of bit code. Specifically:
 %cmake_install
 
 %files
-%license LICENSE.TXT
+%license LICENSE
 %doc README.md doc/*.md
-# No need to install this twice:
-%exclude %{_docdir}/ROCm-Device-Libs/rocm-device-libs/LICENSE.TXT
 %{_libdir}/cmake/AMDDeviceLibs
 %{_libdir}/amdgcn
 
 %changelog
-* Tue Apr 05 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-3
-- Enable ppc64le
-
-* Thu Mar 31 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-2
-- Add clang specific major version requires
-- BR a specific clang/llvm major version combination
-
-* Thu Mar 31 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-1
-- Update to 5.1.0
-- Add llvm version requirement to make sure the right version is used
-
-* Fri Feb 11 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.0.0-1
-- Update to 5.0.0
-
-* Mon Jan 17 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 4.5.2-1
-- Initial package
+* Thu May 26 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.0.2-1
+- Initial EPEL8 package
