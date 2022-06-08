@@ -6,13 +6,14 @@
 
 Name:           rocm-device-libs
 Version:        5.1.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
 License:        NCSA
 Source0:        https://github.com/RadeonOpenCompute/%{upstreamname}/archive/refs/tags/rocm-%{version}.tar.gz#/%{upstreamname}-%{version}.tar.gz
-# Upstream is working on a solution:
+# Upstream is working on a solution, patch is adapted from debian:
+#https://salsa.debian.org/rocm-team/rocm-device-libs/-/blob/master/debian/patches/cmake-amdgcn-bitcode.patch
 Patch0:         0001-Use-FHS-compliant-install.patch
 
 BuildRequires:  cmake
@@ -54,6 +55,9 @@ libraries in the form of bit code. Specifically:
 %{_libdir}/amdgcn
 
 %changelog
+* Wed Jun 08 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-4
+- Update FHS patch (adapted from Debian)
+
 * Tue Apr 05 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-3
 - Enable ppc64le
 
