@@ -5,8 +5,8 @@
 %global upstreamname ROCm-Device-Libs
 
 Name:           rocm-device-libs
-Version:        5.1.0
-Release:        4%{?dist}
+Version:        5.2.0
+Release:        1%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
@@ -55,6 +55,9 @@ libraries in the form of bit code. Specifically:
 %{_libdir}/amdgcn
 
 %changelog
+* Sun Jul 03 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.2.0-1
+- Update to 5.2.0
+
 * Wed Jun 08 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.1.0-4
 - Update FHS patch (adapted from Debian)
 
