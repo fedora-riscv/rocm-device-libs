@@ -1,12 +1,12 @@
 # bitcode has no debuginfo
 %global debug_package %{nil}
 
-%global llvm_maj_ver 14
+%global llvm_maj_ver 15
 %global upstreamname ROCm-Device-Libs
 
 Name:           rocm-device-libs
 Version:        5.2.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
@@ -55,6 +55,9 @@ libraries in the form of bit code. Specifically:
 %{_libdir}/amdgcn
 
 %changelog
+* Tue Sep 13 2022 Nikita Popov <npopov@redhat.com> - 5.2.0-3
+- Rebuild against LLVM 15
+
 * Sat Jul 23 2022 Fedora Release Engineering <releng@fedoraproject.org> - 5.2.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
