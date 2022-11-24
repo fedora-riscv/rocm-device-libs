@@ -1,18 +1,19 @@
 # bitcode has no debuginfo
 %global debug_package %{nil}
 
-%global llvm_maj_ver 13
+%global llvm_maj_ver 14
 %global upstreamname ROCm-Device-Libs
 
 Name:           rocm-device-libs
-Version:        5.0.2
+Version:        5.2.3
 Release:        1%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
 License:        NCSA
 Source0:        https://github.com/RadeonOpenCompute/%{upstreamname}/archive/refs/tags/rocm-%{version}.tar.gz#/%{upstreamname}-%{version}.tar.gz
-# Upstream is working on a solution:
+# Upstream is working on a solution, patch is adapted from debian:
+#https://salsa.debian.org/rocm-team/rocm-device-libs/-/blob/master/debian/patches/cmake-amdgcn-bitcode.patch
 Patch0:         0001-Use-FHS-compliant-install.patch
 
 BuildRequires:  cmake
@@ -47,11 +48,17 @@ libraries in the form of bit code. Specifically:
 %cmake_install
 
 %files
-%license LICENSE
+%license LICENSE.TXT
 %doc README.md doc/*.md
+# No need to install this twice:
+%exclude %{_docdir}/ROCm-Device-Libs/rocm-device-libs/LICENSE.TXT
 %{_libdir}/cmake/AMDDeviceLibs
 %{_libdir}/amdgcn
 
 %changelog
+* Thu Nov 24 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.2.3-1
+- Update to ROCm version 5.2.3
+- Synchronize with spec file from fedora 36
+
 * Thu May 26 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.0.2-1
 - Initial EPEL8 package
