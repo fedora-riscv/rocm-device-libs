@@ -5,7 +5,7 @@
 %global upstreamname ROCm-Device-Libs
 
 Name:           rocm-device-libs
-Version:        5.3.0
+Version:        5.4.1
 Release:        1%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
@@ -55,6 +55,9 @@ libraries in the form of bit code. Specifically:
 %{_libdir}/amdgcn
 
 %changelog
+* Sun Dec 18 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.4.1-1
+- Update to 5.4.1
+
 * Mon Oct 03 2022 Jeremy Newton <alexjnewt at hotmail dot com> - 5.3.0-1
 - Update to 5.3.0
 
