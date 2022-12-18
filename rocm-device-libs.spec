@@ -4,6 +4,11 @@
 %global llvm_maj_ver 14
 %global upstreamname ROCm-Device-Libs
 
+# This might be needed because EL9 llvm is built with clang:
+%if 0%{?epel} > 8
+%global toolchain clang
+%endif
+
 Name:           rocm-device-libs
 Version:        5.2.3
 Release:        1%{?dist}
