@@ -1,6 +1,6 @@
-From f5af9c65f504d5bc86afd920c3fe0fd45694ab81 Mon Sep 17 00:00:00 2001
+From 8ce920dddac9846254aaf6261bafd8b22976b04e Mon Sep 17 00:00:00 2001
 From: Jeremy Newton <alexjnewt@hotmail.com>
-Date: Sun, 18 Dec 2022 20:22:16 -0500
+Date: Sun, 18 Dec 2022 20:48:21 -0500
 Subject: [PATCH] Revert "Update counters for gfx11"
 
 This reverts commit 85f95b94960c6f7ff4ff0242a399deb4a204fb6a.
@@ -28,12 +28,12 @@ index 07574f6..05c5c49 100644
  | `uint __ockl_activelane_u32(void);` | Index of currently lane counting only active lanes in wavefront |
  | - | |
 diff --git a/ockl/inc/ockl.h b/ockl/inc/ockl.h
-index 606b95a..b8ae04c 100644
+index d0b98d4..6300279 100644
 --- a/ockl/inc/ockl.h
 +++ b/ockl/inc/ockl.h
-@@ -148,9 +148,6 @@ DECL_OCKL_NULLARY_U64(memtime)
+@@ -143,9 +143,6 @@ DECL_OCKL_NULLARY_U32(activelane)
  
- OCKL_DEPRECATED
+ DECL_OCKL_NULLARY_U64(memtime)
  DECL_OCKL_NULLARY_U64(memrealtime)
 -DECL_OCKL_NULLARY_U64(cyclectr)
 -DECL_OCKL_NULLARY_U64(steadyctr)
@@ -42,7 +42,7 @@ index 606b95a..b8ae04c 100644
  extern half OCKL_MANGLE_T(wfred_add,f16)(half x);
  extern float OCKL_MANGLE_T(wfred_add,f32)(float x);
 diff --git a/ockl/src/dm.cl b/ockl/src/dm.cl
-index 49bbaa0..42e6b8b 100644
+index 245b4a1..26373dd 100644
 --- a/ockl/src/dm.cl
 +++ b/ockl/src/dm.cl
 @@ -201,6 +201,13 @@ get_heap_ptr(void) {
