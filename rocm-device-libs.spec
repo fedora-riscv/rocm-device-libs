@@ -15,6 +15,9 @@ Source0:        https://github.com/RadeonOpenCompute/%{upstreamname}/archive/ref
 # Upstream is working on a solution, patch is adapted from debian:
 #https://salsa.debian.org/rocm-team/rocm-device-libs/-/blob/master/debian/patches/cmake-amdgcn-bitcode.patch
 Patch0:         0001-Use-FHS-compliant-install.patch
+# I think this change requires LLVM 16, revert for now:
+#https://github.com/RadeonOpenCompute/ROCm-Device-Libs/commit/85f95b94960c6f7ff4ff0242a399deb4a204fb6a
+Patch1:         0001-Revert-Update-counters-for-gfx11.patch
 
 BuildRequires:  cmake
 BuildRequires:  clang-devel
