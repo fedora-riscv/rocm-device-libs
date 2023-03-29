@@ -18,6 +18,9 @@ License:        NCSA
 # I fork upstream sources because they don't target stable LLVM, but rather the
 # bleeding edge LLVM branch. My fork is a snapshot with bugfixes backported:
 Source0:        https://github.com/mystro256/%{upstreamname}/archive/refs/tags/%{version}.tar.gz#/%{upstreamname}-%{version}.tar.gz
+# Upstream is working on a solution, patch is adapted from debian:
+#https://salsa.debian.org/rocm-team/rocm-device-libs/-/blob/master/debian/patches/cmake-amdgcn-bitcode.patch
+Patch0:         0001-Use-FHS-compliant-install.patch
 
 BuildRequires:  cmake
 BuildRequires:  clang-devel
