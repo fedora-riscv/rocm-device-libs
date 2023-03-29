@@ -40,7 +40,7 @@ libraries in the form of bit code. Specifically:
  - Heterogeneous Compute built-in library
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n %{upstreamname}-%{version}
 
 %build
 %cmake -DCMAKE_BUILD_TYPE="RELEASE"
