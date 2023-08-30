@@ -61,7 +61,7 @@ libraries in the form of bit code. Specifically:
 # No need to install this twice:
 %exclude %{_docdir}/ROCm-Device-Libs/LICENSE.TXT
 %{_libdir}/cmake/AMDDeviceLibs
-%{_libdir}/clang/%{llvm_maj_ver}/amdgcn
+%{_prefix}/lib/clang/%{llvm_maj_ver}/amdgcn
 
 %changelog
 * Tue Aug 15 2023 Jeremy Newton <alexjnewt at hotmail dot com> - 17.0-1
