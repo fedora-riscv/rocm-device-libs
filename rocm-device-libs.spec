@@ -15,7 +15,7 @@
 
 Name:           rocm-device-libs
 Version:        %{llvm_maj_ver}.%{bugfix_version}
-Release:        1%{?dist}
+Release:        1.rv64%{?dist}
 Summary:        AMD ROCm LLVM bit code libraries
 
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
@@ -33,7 +33,7 @@ Requires:       clang(major) = %{llvm_maj_ver}
 Requires:       clang-resource-filesystem
 
 #Only the following architectures are useful for ROCm packages:
-ExclusiveArch:  x86_64 aarch64 ppc64le
+ExclusiveArch:  x86_64 aarch64 ppc64le riscv64
 
 %description
 This package contains a set of AMD specific device-side language runtime
